@@ -1,0 +1,22 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        // nums长度需大于0
+        if (nums.length == 0) return 0;
+        
+        // 定义两个变量作为下标
+        int i = 0;
+        int j = 1;
+        
+        // 遍历数组，比较数组中两个下标对应值: nums[i] != nums[j] 则 nums[i+1] = nums[j], i++, j++; nums[i] == nums[j]则 j++.
+        while (j < nums.length) {
+            if(nums[i] != nums[j]) {
+                nums[i + 1] = nums[j];
+                i++;
+            }
+            
+            j++;
+        }
+        
+        return i + 1;
+    }
+}
